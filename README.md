@@ -2,7 +2,7 @@
 All Codes of my learning Flask and Projects(not yet)
 
 
-## Project 1
+## [Project 1](projects/PlottyCSV)
 A Plot Generator on user given parameters for user given csv file.
 
 ![Home Page](projects/PlottyCSV/how-it-looks/home.png)
