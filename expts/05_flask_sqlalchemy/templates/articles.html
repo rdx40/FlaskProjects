@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles and Authors</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .article-card {
+        margin-bottom: 20px;
+      }
+      .article-card .card-title {
+        font-size: 1.75rem;
+        font-weight: bold;
+      }
+      .author-list {
+        list-style: none;
+        padding: 0;
+      }
+      .author-list li {
+        display: inline;
+        margin-right: 10px;
+      }
+      .sidebar {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      .categories {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1 class="display-4">Explore Articles</h1>
+        <p class="lead">
+          A collection of articles authored by experts from various fields.
+        </p>
+      </div>
+
+      <div class="row">
+        <!-- Article List -->
+        <div class="col-md-8">
+          {% for article in articles %}
+          <div class="card article-card">
+            <div class="card-body">
+              <h2 class="card-title">{{ article.title }}</h2>
+              <p class="text-muted">
+                By:
+                <ul class="author-list">
+                  {% for author in article.authors %}
+                  <li>
+                    <a href='/articles_by/{{ author.username }}'
+                      >{{ author.username }}</a
+                    >
+                  </li>
+                  {% if not loop.last %}<li>,</li>{% endif %}
+                  {% endfor %}
+                </ul>
+              </p>
+              <p class="card-text">{{ article.content }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Sidebar for Categories and Featured Articles -->
+        <div class="col-md-4">
+          <div class="sidebar">
+            <h3>Categories</h3>
+            <ul class="list-group categories">
+              <li class="list-group-item">Technology</li>
+              <li class="list-group-item">Science</li>
+              <li class="list-group-item">Health</li>
+              <li class="list-group-item">Education</li>
+              <li class="list-group-item">Lifestyle</li>
+            </ul>
+
+            <h3 class="mt-4">Featured Articles</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">How AI is Changing the World</a></li>
+              <li><a href="#">The Future of Health Tech</a></li>
+              <li><a href="#">Breaking Barriers in Education</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
