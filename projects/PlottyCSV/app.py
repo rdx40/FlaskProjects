@@ -3,7 +3,6 @@ import pandas as pd
 import os
 import plotly.express as px
 import json
-from plotly.utils import PlotlyJSONEncoder  # Correct import
 
 app = Flask(__name__)
 
